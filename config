@@ -189,23 +189,26 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-mode "Exit" {
-        bindsym s exec systemctl suspend
-        bindsym l exec i3-msg exit
-        bindsym r exec systemctl -i reboot
-        bindsym d exec systemctl -i poweroff
-        bindsym e mode "default"; exec pkill -15 nagbar
-        bindsym Escape mode "default"; exec pkill -15 nagbar
-        bindsym Ctrl+c mode "default"; exec pkill -15 nagbar
-}
-
-bindsym $mod+Shift+e mode "Exit"; exec i3-nagbar \
-        -t warning \
-        -m '❕ SESSION EXIT OPTIONS' \
-        -B '💤 [S]uspend'	'systemctl suspend' \ 
-        -B '❌ [L]ogout' 	'i3-msg exit' \
-        -B '🌀️ [R]estart'	'systemctl -i reboot' \
-        -B '⚡️ Shut[D]own'	'systemctl -i poweroff' 
+bindsym $mod+Shift+e exec xfce4-session-logout
+## Exit settings and keybinds for i3 alone, but here we just use xfce
+#
+# mode "Exit" {
+#         bindsym s exec systemctl suspend
+#         bindsym l exec i3-msg exit
+#         bindsym r exec systemctl -i reboot
+#         bindsym d exec systemctl -i poweroff
+#         bindsym e mode "default"; exec pkill -15 nagbar
+#         bindsym Escape mode "default"; exec pkill -15 nagbar
+#         bindsym Ctrl+c mode "default"; exec pkill -15 nagbar
+# }
+#
+# bindsym $mod+Shift+e mode "Exit"; exec i3-nagbar \
+#         -t warning \
+#         -m '❕ SESSION EXIT OPTIONS' \
+#         -B '💤 [S]uspend'	'systemctl suspend' \ 
+#         -B '❌ [L]ogout' 	'i3-msg exit' \
+#         -B '🌀️ [R]estart'	'systemctl -i reboot' \
+#         -B '⚡️ Shut[D]own'	'systemctl -i poweroff' 
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -233,19 +236,19 @@ mode "resize" {
         bindsym Ctrl+c mode "default"
 }
 
-# exit i3 (logs you out of your X session)
-# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 bindsym $mod+r mode "resize"
 
-exec --no-startup-id xfce4-panel --disable-wm-check &
-for_window [ class="Xfce4-panel" instance="xfce4-panel" ] floating enable
-
-# xfce notification manager
-exec --no-startup-id xfce4-notifyd
-
-# GNOME policykit that comes with xfce
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+## More things that will be needed for i3 alone but we can rely on xfce for all this
+#
+# exec --no-startup-id xfce4-panel --disable-wm-check &
+# for_window [ class="Xfce4-panel" instance="xfce4-panel" ] floating enable
+#
+# # xfce notification manager
+# exec --no-startup-id xfce4-notifyd
+#
+# # GNOME policykit that comes with xfce
+# exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
