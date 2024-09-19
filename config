@@ -66,9 +66,10 @@ bindsym $mod+Shift+Escape exec htop
 # open display settings
 bindsym $mod+p exec xfce-display-settings --minimal
 
-# screnshooter (copy to clipboard by default)
-bindsym Print exec xfce4-screenshooter -c
-bindsym Shift+Print exec xfce4-screenshooter
+# screnshooter
+# Copies window's screenshot keybind cuz i'm used to it
+bindsym $mod+Shift+s exec xfce4-screenshooter -c
+bindsym Print exec xfce4-screenshooter
 
 # some additional xfce4-screenshooter options
 
