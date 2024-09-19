@@ -61,10 +61,10 @@ bindsym $mod+Return exec xfce4-terminal
 bindsym $mod+Shift+Return exec thunar
 
 # open htop
-bindsym $mod+Shift+Escape exec htop
+bindsym $mod+Shift+p exec --no-startup-id xfce4-terminal -e htop
 
 # open display settings
-bindsym $mod+p exec xfce-display-settings --minimal
+bindsym $mod+p exec xfce4-display-settings --minimal
 
 # screnshooter
 # Copies window's screenshot keybind cuz i'm used to it
