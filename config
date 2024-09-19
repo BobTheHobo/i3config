@@ -123,10 +123,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+minus split h
+bindsym $mod+bar split h
 
 # split in vertical orientation
-bindsym $mod+bar split v
+bindsym $mod+minus split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -251,11 +251,21 @@ bindsym $mod+r mode "resize"
 # # GNOME policykit that comes with xfce
 # exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available) (taken out in favor of xfce4-panel)
 # bar {
 #         status_command i3status
 # }
 
+# Configure 5px of space between windows and to the screen edges.
+gaps inner 5px
+
+# Configure an additional 5px of extra space to the screen edges,
+# for a total gap of 10px to the screen edges, and 5px between windows.
+gaps outer 5px
+
+# Only enable outer gaps when there is exactly one window or split container on the workspace.
+smart_gaps inverse_outer
+
+# Use nitrogen for backgrounds
 exec --no-startup-id nitrogen --restore
