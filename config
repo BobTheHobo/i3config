@@ -80,7 +80,7 @@ bindsym Shift+Print exec xfce4-screenshooter
 #   -w  Take a screenshot of the active window
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+w kill
 
 # open xfce4 popup app menu with mod+d
 bindsym $mod+d exec --no-startup-id xfce4-popup-whiskermenu
